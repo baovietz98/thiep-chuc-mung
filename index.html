@@ -1,16 +1,59 @@
 <!DOCTYPE html>
+<!--
+  ╔═══════════════════════════════════════════════════════════════╗
+  ║  VietinBank Digital Birthday Card                             ║
+  ║  Version: 1.0.0                                               ║
+  ║  Author: VietinBank - Chi nhánh TP. Hồ Chí Minh               ║
+  ║  Created: 2024                                                ║
+  ║                                                               ║
+  ║  Features:                                                    ║
+  ║  • 3D flip card animation with CSS transforms                 ║
+  ║  • Dynamic balloon & confetti effects                         ║
+  ║  • URL-based personalization (?name=X&msg=Y)                  ║
+  ║  • Admin link generator tool                                  ║
+  ║  • Fully responsive (mobile-first)                            ║
+  ║  • Open Graph meta tags for social sharing                    ║
+  ╚═══════════════════════════════════════════════════════════════╝
+-->
 <html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VietinBank - Thiệp Chúc Mừng Sinh Nhật</title>
+
+    <!-- SEO & Social Preview -->
+    <meta name="description"
+        content="Thiệp chúc mừng sinh nhật từ VietinBank - Chi nhánh TP. Hồ Chí Minh. Chúc bạn luôn mạnh khỏe, hạnh phúc và thành công!">
+    <meta name="author" content="VietinBank">
+
+    <!-- Open Graph (Facebook, Zalo, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thiep-vietinbank.vercel.app/">
+    <meta property="og:title" content="🎂 Thiệp Chúc Mừng Sinh Nhật - VietinBank">
+    <meta property="og:description"
+        content="Bạn nhận được thiệp chúc mừng sinh nhật từ VietinBank Family! Chạm để mở thiệp ✨">
+    <meta property="og:image" content="https://thiep-vietinbank.vercel.app/inside-bg.png">
+    <meta property="og:locale" content="vi_VN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🎂 Thiệp Chúc Mừng Sinh Nhật - VietinBank">
+    <meta name="twitter:description" content="Bạn nhận được thiệp chúc mừng sinh nhật từ VietinBank Family!">
+    <meta name="twitter:image" content="https://thiep-vietinbank.vercel.app/inside-bg.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0054a6">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
+        /* ═══════════════════════════════════════════════════════════
+           CSS Variables (Design Tokens)
+           ═══════════════════════════════════════════════════════════ */
         :root {
             --vtb-blue: #0054a6;
             --vtb-red: #ec1d25;
@@ -18,6 +61,9 @@
             --vtb-cream: #fdf8ef;
         }
 
+        /* ═══════════════════════════════════════════════════════════
+           Base & Reset
+           ═══════════════════════════════════════════════════════════ */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -564,7 +610,6 @@
                 max-height: 75svh;
             }
 
-            /* Disable hover effects on mobile */
             .card-container:hover {
                 transform: none;
             }
@@ -577,7 +622,6 @@
                 transform: none !important;
             }
 
-            /* Cover Front - Mobile - FILLED LAYOUT */
             .cover-front {
                 padding: 20px 15px;
             }
@@ -622,7 +666,6 @@
                 line-height: 1.5;
             }
 
-            /* Inside Page - Mobile */
             .inside-page {
                 padding: 25px 18px;
             }
@@ -657,12 +700,17 @@
             }
 
             .emoji-row {
-                gap: 15px;
-                margin: 12px 0;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+                margin: 10px 0;
             }
 
             .emoji-row span {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
+                display: inline-block;
             }
 
             .signature-block {
@@ -673,7 +721,6 @@
                 font-size: 1rem;
             }
 
-            /* Hint & Admin */
             .hint-text {
                 bottom: -40px;
                 font-size: 0.75rem;
@@ -687,7 +734,6 @@
                 font-size: 1.2rem;
             }
 
-            /* Modal */
             .modal-content {
                 padding: 22px 18px;
             }
