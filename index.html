@@ -15,7 +15,6 @@
             --vtb-blue: #0054a6;
             --vtb-red: #ec1d25;
             --vtb-gold: #c9a84c;
-            --vtb-gold-light: #f5e6c8;
             --vtb-cream: #fdf8ef;
         }
 
@@ -36,7 +35,6 @@
             perspective: 2000px;
         }
 
-        /* Balloons */
         .balloons-container {
             position: fixed;
             inset: 0;
@@ -116,7 +114,6 @@
             }
         }
 
-        /* Card Container */
         .card-container {
             position: relative;
             width: 480px;
@@ -124,9 +121,26 @@
             z-index: 10;
             transform-style: preserve-3d;
             transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+            cursor: pointer;
         }
 
-        /* Base Page Style */
+        .card-container:hover {
+            transform: scale(1.02);
+        }
+
+        .card-container:hover .card-page {
+            box-shadow: 0 20px 50px rgba(201, 168, 76, 0.3), 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-container:hover .hint-text {
+            color: var(--vtb-red);
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        .card-container.flipped:hover {
+            transform: translateX(45%) scale(1.02);
+        }
+
         .card-page {
             position: absolute;
             width: 100%;
@@ -138,7 +152,6 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
-        /* INSIDE PAGE (Bottom layer - z-index 1) */
         .inside-page {
             z-index: 1;
             background: linear-gradient(180deg, #fffdf8 0%, #fff8eb 100%);
@@ -146,12 +159,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px 30px;
+            padding: 35px 25px;
             text-align: center;
             border: 1px solid #e8dcc8;
         }
 
-        /* Gold frame inside */
         .inside-page::before {
             content: '';
             position: absolute;
@@ -162,46 +174,65 @@
             opacity: 0.5;
         }
 
-        .gold-line {
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--vtb-gold), transparent);
-            margin: 12px 0;
+        .cake-decoration {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
         }
 
         .greeting-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--vtb-red);
+            line-height: 1.2;
+        }
+
+        .recipient-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             color: var(--vtb-blue);
-            line-height: 1.4;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .gold-line {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--vtb-gold), transparent);
+            margin: 15px 0;
         }
 
         .greeting-message {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #555;
-            line-height: 1.8;
+            line-height: 1.7;
             font-style: italic;
-            max-width: 90%;
-            margin: 20px 0;
-            padding: 15px 20px;
+            max-width: 95%;
+            margin: 10px 0;
+            padding: 12px 15px;
             background: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
+            border-radius: 8px;
             border-left: 3px solid var(--vtb-gold);
         }
 
         .emoji-row {
             display: flex;
-            gap: 20px;
-            margin: 20px 0;
+            gap: 18px;
+            margin: 15px 0;
         }
 
         .emoji-row span {
-            font-size: 2.5rem;
+            font-size: 2rem;
             animation: bounce 2s ease-in-out infinite;
         }
 
         .emoji-row span:nth-child(2) {
-            animation-delay: 0.3s;
+            animation-delay: 0.2s;
+        }
+
+        .emoji-row span:nth-child(3) {
+            animation-delay: 0.4s;
         }
 
         @keyframes bounce {
@@ -212,7 +243,7 @@
             }
 
             50% {
-                transform: translateY(-6px);
+                transform: translateY(-5px);
             }
         }
 
@@ -220,17 +251,16 @@
             margin-top: auto;
             color: var(--vtb-gold);
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .signature-block .brand {
             color: var(--vtb-blue);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
-        /* COVER PAGE (Top layer - z-index 5) */
         .cover-page {
             z-index: 5;
         }
@@ -249,7 +279,6 @@
             overflow: hidden;
         }
 
-        /* FRONT COVER */
         .cover-front {
             background: linear-gradient(160deg, #fffdf8 0%, #fff8eb 50%, #fff4de 100%);
             display: flex;
@@ -272,40 +301,32 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.9rem;
-            font-weight: 800;
-        }
-
-        .logo-text .blue {
-            color: var(--vtb-blue);
-        }
-
-        .logo-text .red {
-            color: var(--vtb-red);
+        .logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
         }
 
         .branch-text {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--vtb-blue);
             font-weight: 600;
             text-transform: uppercase;
             text-align: center;
-            margin-top: 8px;
-            line-height: 1.5;
+            margin-top: 6px;
+            line-height: 1.4;
         }
 
         .union-badge {
-            margin-top: 25px;
-            font-size: 0.65rem;
+            margin-top: 20px;
+            font-size: 0.6rem;
             color: var(--vtb-blue);
             font-weight: 700;
             text-transform: uppercase;
-            padding: 6px 14px;
+            padding: 5px 12px;
             background: rgba(255, 255, 255, 0.8);
             border-radius: 20px;
             border: 1px solid rgba(0, 84, 166, 0.2);
@@ -313,30 +334,29 @@
 
         .birthday-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             color: var(--vtb-red);
-            margin: 25px 0 10px 0;
+            margin: 20px 0 8px 0;
             line-height: 1;
             transform: rotate(-3deg);
-            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.8);
         }
 
-        .balloon-icon {
-            font-size: 2.8rem;
+        .party-icons {
+            font-size: 2rem;
             margin: 8px 0;
+            letter-spacing: 8px;
         }
 
         .wishes-list {
             font-family: 'Dancing Script', cursive;
             color: var(--vtb-red);
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             margin-top: auto;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
-        /* BACK COVER (Inside Left) */
         .cover-back {
             transform: rotateY(180deg);
             background: linear-gradient(180deg, #fffdf8 0%, #fff8eb 100%);
@@ -347,7 +367,6 @@
             padding: 12px;
         }
 
-        /* Gold frame to match right side */
         .cover-back::before {
             content: '';
             position: absolute;
@@ -389,7 +408,6 @@
             margin-top: 15px;
         }
 
-        /* Hint */
         .hint-text {
             position: absolute;
             bottom: -50px;
@@ -414,7 +432,6 @@
             }
         }
 
-        /* Admin */
         .admin-btn {
             position: fixed;
             bottom: 25px;
@@ -439,7 +456,6 @@
             box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
         }
 
-        /* Modal */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -533,12 +549,10 @@
             background: #f0fff4;
         }
 
-        /* ===== RESPONSIVE MOBILE ===== */
-        @media (max-width: 600px) {
+        @media (max-width: 520px) {
             body {
-                padding: 20px 10px;
+                padding: 15px 10px;
                 min-height: 100svh;
-                /* Safari viewport fix */
             }
 
             .card-container {
@@ -549,159 +563,79 @@
                 max-height: 75svh;
             }
 
-            /* Cover Front */
             .cover-front {
-                padding: 20px 15px;
+                padding: 18px 15px;
             }
 
-            .cover-front::before {
-                inset: 8px;
-            }
-
-            .logo-text {
-                font-size: 1.5rem;
+            .logo-img {
+                height: 32px;
             }
 
             .branch-text {
-                font-size: 0.6rem;
-                margin-top: 5px;
+                font-size: 0.55rem;
             }
 
             .union-badge {
-                margin-top: 15px;
-                font-size: 0.55rem;
-                padding: 5px 10px;
+                font-size: 0.5rem;
+                margin-top: 12px;
             }
 
             .birthday-title {
-                font-size: 2.8rem;
-                margin: 15px 0 8px 0;
+                font-size: 2.6rem;
+                margin: 12px 0 5px 0;
             }
 
-            .balloon-icon {
-                font-size: 2rem;
-                margin: 5px 0;
+            .party-icons {
+                font-size: 1.6rem;
             }
 
             .wishes-list {
-                font-size: 1.3rem;
-                margin-bottom: 20px;
+                font-size: 1.2rem;
+                margin-bottom: 18px;
             }
 
-            /* Inside Page */
             .inside-page {
-                padding: 25px 20px;
+                padding: 25px 18px;
             }
 
-            .inside-page::before {
-                inset: 8px;
+            .cake-decoration {
+                font-size: 2.2rem;
             }
 
             .greeting-title {
-                font-size: 1.25rem;
+                font-size: 1.6rem;
             }
 
-            .gold-line {
-                width: 40px;
-                height: 2px;
-                margin: 8px 0;
+            .recipient-name {
+                font-size: 1.1rem;
             }
 
             .greeting-message {
-                font-size: 0.85rem;
-                padding: 12px 15px;
-                margin: 15px 0;
-                line-height: 1.7;
-            }
-
-            .emoji-row {
-                gap: 15px;
-                margin: 15px 0;
+                font-size: 0.8rem;
+                padding: 10px 12px;
             }
 
             .emoji-row span {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
 
-            .signature-block {
-                font-size: 0.9rem;
-            }
-
-            .signature-block .brand {
-                font-size: 1rem;
-            }
-
-            /* Back Cover */
-            .cover-back {
-                padding: 8px;
-            }
-
-            .cover-back::before {
-                inset: 8px;
-            }
-
-            /* Hint */
             .hint-text {
                 bottom: -40px;
                 font-size: 0.75rem;
             }
 
-            /* Admin Button - larger touch target */
             .admin-btn {
-                width: 52px;
-                height: 52px;
+                width: 50px;
+                height: 50px;
                 bottom: 15px;
                 right: 15px;
-                font-size: 1.4rem;
-            }
-
-            /* Modal */
-            .modal-content {
-                padding: 25px 20px;
-                margin: 15px;
-                max-height: 85vh;
-                overflow-y: auto;
-            }
-
-            .modal-title {
-                font-size: 1.2rem;
-                margin-bottom: 20px;
-            }
-
-            .form-label {
-                font-size: 0.8rem;
             }
 
             .form-input {
-                padding: 12px;
                 font-size: 16px;
-                /* Prevents iOS zoom on focus */
-                margin-bottom: 15px;
-            }
-
-            .submit-btn {
-                padding: 14px;
-                font-size: 0.95rem;
-            }
-
-            .result-box {
-                font-size: 0.75rem;
-                padding: 10px;
-            }
-
-            /* Reduce balloon/confetti on mobile for performance */
-            .balloon {
-                width: 35px;
-                height: 45px;
-            }
-
-            .confetti {
-                width: 6px;
-                height: 6px;
             }
         }
 
-        /* Extra small screens */
         @media (max-width: 360px) {
             .card-container {
                 width: 98vw;
@@ -712,30 +646,12 @@
                 font-size: 2.2rem;
             }
 
-            .wishes-list {
-                font-size: 1.1rem;
-            }
-
             .greeting-title {
-                font-size: 1.1rem;
+                font-size: 1.4rem;
             }
 
-            .greeting-message {
-                font-size: 0.8rem;
-            }
-        }
-
-        /* Landscape mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .card-container {
-                height: 85vh;
-                width: auto;
-                aspect-ratio: 3/4;
-            }
-
-            .hint-text {
-                bottom: -25px;
-                font-size: 0.7rem;
+            .recipient-name {
+                font-size: 1rem;
             }
         }
     </style>
@@ -746,17 +662,17 @@
     <div class="balloons-container" id="balloonsLayer"></div>
 
     <div class="card-container" id="card">
-        <!-- INSIDE PAGE (Bottom - shows when card is open) -->
         <div class="card-page inside-page">
-            <h2 class="greeting-title" id="recipientName">Dear Colleague</h2>
+            <div class="cake-decoration">🎂</div>
+            <h2 class="greeting-title">Chúc Mừng Sinh Nhật</h2>
+            <div class="recipient-name" id="recipientName">Dear Colleague</div>
             <div class="gold-line"></div>
-            <p class="greeting-message" id="greetingMsg">
-                Nhân dịp sinh nhật, chúc bạn luôn mạnh khỏe, hạnh phúc và thành công rực rỡ trong sự nghiệp cùng
-                VietinBank.
-            </p>
+            <p class="greeting-message" id="greetingMsg">Nhân dịp sinh nhật, chúc bạn luôn mạnh khỏe, hạnh phúc và thành
+                công rực rỡ trong sự nghiệp cùng VietinBank.</p>
             <div class="emoji-row">
-                <span>🎂</span>
+                <span>🎈</span>
                 <span>🎁</span>
+                <span>🎉</span>
             </div>
             <div class="signature-block">
                 Thân ái,
@@ -764,30 +680,18 @@
             </div>
         </div>
 
-        <!-- COVER PAGE (Top - flips to reveal inside) -->
         <div class="card-page cover-page">
-            <!-- Front of Cover -->
             <div class="cover-front">
                 <div class="logo-area">
-                    <div class="logo-text">
-                        <span class="blue">Vietin</span><span class="red">Bank</span>
-                    </div>
-                    <div class="branch-text">
-                        Ngân Hàng TMCP Công Thương Việt Nam<br>
-                        Chi Nhánh TP. Hồ Chí Minh
-                    </div>
+                    <img src="./Logo_Vietinbank.png" alt="VietinBank" class="logo-img">
+                    <div class="branch-text">Ngân Hàng TMCP Công Thương Việt Nam<br>Chi Nhánh TP. Hồ Chí Minh</div>
                 </div>
                 <div class="union-badge">Ban Chấp Hành Công Đoàn Cơ Sở</div>
                 <div class="birthday-title">Happy<br>Birthday</div>
-                <div class="balloon-icon">🎈</div>
-                <div class="wishes-list">
-                    Sức Khỏe<br>
-                    Hạnh Phúc<br>
-                    Thành Đạt
-                </div>
+                <div class="party-icons">🎊 🎁 🎊</div>
+                <div class="wishes-list">Sức Khỏe<br>Hạnh Phúc<br>Thành Đạt</div>
             </div>
 
-            <!-- Back of Cover (Inside Left image) -->
             <div class="cover-back">
                 <div class="image-fallback">
                     <div class="cake-emoji">🎂</div>
@@ -801,10 +705,8 @@
         <div class="hint-text">Chạm để mở thiệp ✨</div>
     </div>
 
-    <!-- Admin Button -->
     <div class="admin-btn" id="adminBtn">⚙️</div>
 
-    <!-- Modal -->
     <div class="modal-overlay" id="modal">
         <div class="modal-content">
             <span class="modal-close" id="closeModal">✕</span>
@@ -822,7 +724,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const DEFAULT_MSG = "Nhân dịp sinh nhật, chúc bạn luôn mạnh khỏe, hạnh phúc và thành công rực rỡ trong sự nghiệp cùng VietinBank.";
-
             const balloonsLayer = document.getElementById('balloonsLayer');
             const colors = ['#ffd700', '#ec1d25', '#0054a6', '#c9a84c'];
 
@@ -852,7 +753,6 @@
             setInterval(spawnBalloon, 1200);
             setInterval(spawnConfetti, 500);
 
-            // Card flip
             const card = document.getElementById('card');
             let isOpen = false;
             card.addEventListener('click', () => {
@@ -863,14 +763,12 @@
                 }
             });
 
-            // URL Params
             const params = new URLSearchParams(window.location.search);
             if (params.has('name')) {
-                document.getElementById('recipientName').textContent = `Chúc mừng sinh nhật, ${params.get('name')}!`;
+                document.getElementById('recipientName').textContent = params.get('name');
             }
             document.getElementById('greetingMsg').textContent = params.get('msg') || DEFAULT_MSG;
 
-            // Admin Modal
             const modal = document.getElementById('modal');
             const resultBox = document.getElementById('resultBox');
 
@@ -900,7 +798,6 @@
                     return;
                 }
 
-                // Works on Netlify, GitHub Pages, and local
                 const base = window.location.origin + window.location.pathname;
                 const urlParams = new URLSearchParams();
                 urlParams.set('name', name);
