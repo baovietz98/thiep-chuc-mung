@@ -549,6 +549,7 @@
             background: #f0fff4;
         }
 
+        /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 520px) {
             body {
                 padding: 15px 10px;
@@ -556,98 +557,167 @@
             }
 
             .card-container {
-                width: 95vw;
+                width: 90vw;
                 max-width: 360px;
                 height: auto;
                 aspect-ratio: 3/4;
                 max-height: 75svh;
             }
 
+            /* Disable hover effects on mobile */
+            .card-container:hover {
+                transform: none;
+            }
+
+            .card-container.flipped {
+                transform: none !important;
+            }
+
+            .card-container.flipped:hover {
+                transform: none !important;
+            }
+
+            /* Cover Front - Mobile - FILLED LAYOUT */
             .cover-front {
-                padding: 18px 15px;
+                padding: 20px 15px;
+            }
+
+            .cover-front::before {
+                inset: 10px;
+            }
+
+            .logo-area {
+                margin-top: 8px;
             }
 
             .logo-img {
-                height: 32px;
+                height: 35px;
             }
 
             .branch-text {
                 font-size: 0.55rem;
+                margin-top: 5px;
             }
 
             .union-badge {
-                font-size: 0.5rem;
-                margin-top: 12px;
+                font-size: 0.55rem;
+                margin-top: 18px;
+                padding: 6px 14px;
             }
 
             .birthday-title {
-                font-size: 2.6rem;
-                margin: 12px 0 5px 0;
+                font-size: 3.2rem;
+                margin: 25px 0 12px 0;
             }
 
             .party-icons {
-                font-size: 1.6rem;
+                font-size: 2rem;
+                letter-spacing: 10px;
+                margin: 15px 0;
             }
 
             .wishes-list {
-                font-size: 1.2rem;
-                margin-bottom: 18px;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                line-height: 1.5;
             }
 
+            /* Inside Page - Mobile */
             .inside-page {
                 padding: 25px 18px;
             }
 
+            .inside-page::before {
+                inset: 10px;
+            }
+
             .cake-decoration {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
+                margin-bottom: 8px;
             }
 
             .greeting-title {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
 
             .recipient-name {
                 font-size: 1.1rem;
+                margin-top: 8px;
+            }
+
+            .gold-line {
+                width: 60px;
+                margin: 12px 0;
             }
 
             .greeting-message {
                 font-size: 0.8rem;
-                padding: 10px 12px;
+                padding: 12px 14px;
+                margin: 10px 0;
+            }
+
+            .emoji-row {
+                gap: 15px;
+                margin: 12px 0;
             }
 
             .emoji-row span {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
 
+            .signature-block {
+                font-size: 0.9rem;
+            }
+
+            .signature-block .brand {
+                font-size: 1rem;
+            }
+
+            /* Hint & Admin */
             .hint-text {
                 bottom: -40px;
                 font-size: 0.75rem;
             }
 
             .admin-btn {
-                width: 50px;
-                height: 50px;
+                width: 48px;
+                height: 48px;
                 bottom: 15px;
                 right: 15px;
+                font-size: 1.2rem;
+            }
+
+            /* Modal */
+            .modal-content {
+                padding: 22px 18px;
+            }
+
+            .modal-title {
+                font-size: 1.3rem;
             }
 
             .form-input {
                 font-size: 16px;
+                padding: 12px;
             }
         }
 
         @media (max-width: 360px) {
             .card-container {
-                width: 98vw;
+                width: 95vw;
                 max-height: 70svh;
             }
 
             .birthday-title {
-                font-size: 2.2rem;
+                font-size: 2.8rem;
+            }
+
+            .wishes-list {
+                font-size: 1.3rem;
             }
 
             .greeting-title {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
 
             .recipient-name {
