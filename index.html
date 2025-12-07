@@ -533,23 +533,209 @@
             background: #f0fff4;
         }
 
-        @media (max-width: 520px) {
+        /* ===== RESPONSIVE MOBILE ===== */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+                min-height: 100svh;
+                /* Safari viewport fix */
+            }
+
             .card-container {
-                width: 92vw;
-                height: 60vh;
-                max-height: 580px;
+                width: 95vw;
+                max-width: 360px;
+                height: auto;
+                aspect-ratio: 3/4;
+                max-height: 75svh;
+            }
+
+            /* Cover Front */
+            .cover-front {
+                padding: 20px 15px;
+            }
+
+            .cover-front::before {
+                inset: 8px;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
+            .branch-text {
+                font-size: 0.6rem;
+                margin-top: 5px;
+            }
+
+            .union-badge {
+                margin-top: 15px;
+                font-size: 0.55rem;
+                padding: 5px 10px;
             }
 
             .birthday-title {
                 font-size: 2.8rem;
+                margin: 15px 0 8px 0;
+            }
+
+            .balloon-icon {
+                font-size: 2rem;
+                margin: 5px 0;
             }
 
             .wishes-list {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+            }
+
+            /* Inside Page */
+            .inside-page {
+                padding: 25px 20px;
+            }
+
+            .inside-page::before {
+                inset: 8px;
             }
 
             .greeting-title {
-                font-size: 1.3rem;
+                font-size: 1.25rem;
+            }
+
+            .gold-line {
+                width: 40px;
+                height: 2px;
+                margin: 8px 0;
+            }
+
+            .greeting-message {
+                font-size: 0.85rem;
+                padding: 12px 15px;
+                margin: 15px 0;
+                line-height: 1.7;
+            }
+
+            .emoji-row {
+                gap: 15px;
+                margin: 15px 0;
+            }
+
+            .emoji-row span {
+                font-size: 2rem;
+            }
+
+            .signature-block {
+                font-size: 0.9rem;
+            }
+
+            .signature-block .brand {
+                font-size: 1rem;
+            }
+
+            /* Back Cover */
+            .cover-back {
+                padding: 8px;
+            }
+
+            .cover-back::before {
+                inset: 8px;
+            }
+
+            /* Hint */
+            .hint-text {
+                bottom: -40px;
+                font-size: 0.75rem;
+            }
+
+            /* Admin Button - larger touch target */
+            .admin-btn {
+                width: 52px;
+                height: 52px;
+                bottom: 15px;
+                right: 15px;
+                font-size: 1.4rem;
+            }
+
+            /* Modal */
+            .modal-content {
+                padding: 25px 20px;
+                margin: 15px;
+                max-height: 85vh;
+                overflow-y: auto;
+            }
+
+            .modal-title {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+
+            .form-label {
+                font-size: 0.8rem;
+            }
+
+            .form-input {
+                padding: 12px;
+                font-size: 16px;
+                /* Prevents iOS zoom on focus */
+                margin-bottom: 15px;
+            }
+
+            .submit-btn {
+                padding: 14px;
+                font-size: 0.95rem;
+            }
+
+            .result-box {
+                font-size: 0.75rem;
+                padding: 10px;
+            }
+
+            /* Reduce balloon/confetti on mobile for performance */
+            .balloon {
+                width: 35px;
+                height: 45px;
+            }
+
+            .confetti {
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 360px) {
+            .card-container {
+                width: 98vw;
+                max-height: 70svh;
+            }
+
+            .birthday-title {
+                font-size: 2.2rem;
+            }
+
+            .wishes-list {
+                font-size: 1.1rem;
+            }
+
+            .greeting-title {
+                font-size: 1.1rem;
+            }
+
+            .greeting-message {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Landscape mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .card-container {
+                height: 85vh;
+                width: auto;
+                aspect-ratio: 3/4;
+            }
+
+            .hint-text {
+                bottom: -25px;
+                font-size: 0.7rem;
             }
         }
     </style>
